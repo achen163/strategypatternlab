@@ -25,7 +25,7 @@ class ListContainer : public Container {
 	
 	virtual void print() {
 		for (list<Base*>::iterator it = container.begin(); it!= container.end(); it++) {
-			cout << it ->evaluate();
+			cout << (*it) ->evaluate();
 }  
 			
 	}
