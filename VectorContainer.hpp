@@ -27,15 +27,17 @@ class VectorContainer: public Container {
 			}	
 		} 
 		virtual void sort() {	
-			//sort_function->sort();
-			}
+			if(sort_function == nullptr) 
+				cout << "sort_function is null!" << endl;
+			else 
+				sort(this);
+		}	
+			 
 		virtual void swap(int i, int j) { 
-			Base* containeri = vcontainer.at(i);	
-			Base* temp = containeri;
-			Base* containerj = vcontainer.at(j);
-			containeri = containerj;
-			containerj = temp;
-		 } 
+			Base* temp = vcontainer.at(i);	
+			vcontainer.at(i) = vcontainer.at(j);
+			vcontainer.at(j) = temp;
+		} 
 		virtual Base* at(int i) { return vcontainer.at(i);  }
 		virtual int size() { return vcontainer.size(); }
 		
