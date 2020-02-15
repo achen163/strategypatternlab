@@ -4,6 +4,8 @@
 #include "container.hpp"
 #include "op.hpp"
 #include "mult.hpp"
+#include "SelectionSort.hpp"
+#include "SelectionSort.cpp"
 #include <vector>
 #include <iostream>
 
@@ -11,34 +13,34 @@ using namespace std;
 
 class VectorContainer: public Container {
 	public: 
-		VectorContainer() : Container() {}
+		VectorContainer() : Container() { }
 		void set_sort_function(Sort* sort_function) {
 			this->sort_function = sort_function;
 		}
 	
 		virtual void add_element(Base* element) {
-			container.push_back(element);
+			vcontainer.push_back(element);
 		}
 		virtual void print() {
-			for(unsigned i = 0; i < container.size(); i++) {
-				cout << container.at(i)->evaluate() << endl;
+			for(unsigned i = 0; i < vcontainer.size(); i++) {
+				cout << vcontainer.at(i)->evaluate() << endl;
 			}	
 		} 
 		virtual void sort() {	
-			
+			//sort_function->sort();
 			}
 		virtual void swap(int i, int j) { 
-			Base* containeri = container.at(i);	
+			Base* containeri = vcontainer.at(i);	
 			Base* temp = containeri;
-			Base* containerj = container.at(j);
+			Base* containerj = vcontainer.at(j);
 			containeri = containerj;
 			containerj = temp;
 		 } 
-		virtual Base* at(int i) { return container.at(i);  }
-		virtual int size() { return container.size(); }
+		virtual Base* at(int i) { return vcontainer.at(i);  }
+		virtual int size() { return vcontainer.size(); }
 		
-	protected:
-		vector<Base*> container;
+	private:
+		vector<Base*> vcontainer;
 };
 
 #endif
