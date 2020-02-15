@@ -2,10 +2,11 @@
 #define __VECTORCONTAINER_HPP__
 
 #include "container.hpp"
-#include "lab-04-composite-pattern-actylab4/op.hpp"
-#include "lab-04-composite-pattern-actylab4/mult.hpp"
+#include "op.hpp"
+#include "mult.hpp"
 #include <vector>
-#include <string>
+#include <iostream>
+
 using namespace std;
 
 class VectorContainer: public Container {
@@ -20,10 +21,20 @@ class VectorContainer: public Container {
 		}
 		virtual void print() {
 			for(unsigned i = 0; i < container.size(); i++) {
-				container.at(i)->stringify();
+				cout << container.at(i)->evaluate() << endl;
 			}	
 		} 
-		virtual void sort() {}
+		virtual void sort() {	
+			
+			}
+		virtual void swap(int i, int j) { 
+			Base* containeri = container.at(i);	
+			Base* temp = containeri;
+			Base* containerj = container.at(j);
+			containeri = containerj;
+			containerj = temp;
+		 } 
+		virtual Base* at(int i) { return container.at(i);  }
 		virtual int size() { return container.size(); }
 		
 	protected:
