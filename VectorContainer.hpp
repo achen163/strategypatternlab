@@ -2,10 +2,7 @@
 #define __VECTORCONTAINER_HPP__
 
 #include "container.hpp"
-#include "op.hpp"
-#include "mult.hpp"
-#include "SelectionSort.hpp"
-#include "SelectionSort.cpp"
+
 #include <vector>
 #include <iostream>
 
@@ -30,7 +27,7 @@ class VectorContainer: public Container {
 			if(sort_function == nullptr) 
 				cout << "sort_function is null!" << endl;
 			else 
-				sort(this);
+				sort_function->sort(this);
 		}	
 			 
 		virtual void swap(int i, int j) { 

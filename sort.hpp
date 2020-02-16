@@ -2,13 +2,11 @@
 #define __SORT_HPP__
 
 #include "container.hpp"
-
 class Container;
-
 class Sort {
     public:
         /* Constructors */
-        Sort();
+        Sort() {}
 
         /* Pure Virtual Functions */
         virtual void sort(Container* container) = 0;
