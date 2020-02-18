@@ -33,7 +33,7 @@ int main() {
 	container->swap(0,1);
 	container->print();
 	cout << endl;
-	cout << "Pre-sort container: " << endl;	
+	cout << "Pre-sort list container: " << endl;	
 	container->print();
 	cout << endl;
 	container->set_sort_function(new BubbleSort());
@@ -41,6 +41,8 @@ int main() {
 	cout << "After sorting: " << endl;
 	container->print(); 
 	cout << endl;
+
+	
 	//VectorContainer functionality 
 	VectorContainer* c = new VectorContainer();
 	Base* seven = new Op(7);
@@ -67,10 +69,34 @@ int main() {
 	cout << "swap index 0 and 1: " << endl;
 	c->swap(0, 1);
 	c->print();
-	cout << "sort container using selection sort: " << endl;
+	cout << "sort vector container using selection sort: " << endl;
 	c->set_sort_function(new SelectionSort());
 	c->sort();
 	c->print();
+	
+	VectorContainer* c2 = new VectorContainer();
+	Base* seven2 = new Op(7);
+        Base* eight2 = new Op(8);
+        Base* two3 = new Op(2);
+        Base* mult2 = new Mult(seven2, eight2);
+        Base* sub2 = new Sub(eight2, seven2);
+        Base* add2 = new Add(eight2, seven2);
+        Base* pow2 = new Pow(eight2, two3);
+        Base* rand2 = new Rand();
+        c2->add_element(two2);
+        c2->add_element(eight2);
+        c2->add_element(seven2);
+        c2->add_element(mult2);
+        c2->add_element(sub2);
+        c2->add_element(add2);
+        c2->add_element(pow2);
+        c2->add_element(rand2);
+        cout << "add 2,8,7,56,1,15,64, and a random number" << endl;
+	cout << "sort vector container using bubble sort" << endl;
+	c2->set_sort_function(new BubbleSort());
+	c2->sort();
+	c2->print();
+
 	
 
 return 0;
