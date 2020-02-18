@@ -5,10 +5,20 @@
 #include "sub.hpp"
 #include "VectorContainer.hpp"
 #include "SelectionSort.hpp"
-
+#include "ListContainer.hpp"
+#include "BubbleSort.hpp"
 int main(int argc, char**argv) {
 ::testing::InitGoogleTest(&argc, argv);
 return RUN_ALL_TESTS();
+}
+
+TEST(ListContainterTest, SizeFunctionTest) {
+	ListContainer* container = new ListContainer();
+	Op* one = new Op(1);
+	Op* two = new Op(2); 	
+	container->add_element(one);
+	container->add_element(two);
+	EXPECT_EQ(container->size(), 2);
 }
 
 TEST(VectorContainerTestSet, AddElementSwapAtTest) {
