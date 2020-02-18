@@ -18,7 +18,7 @@ TEST(ListContainterTest, SizeFunctionTest) {
 	Op* two = new Op(2); 	
 	container->add_element(one);
 	container->add_element(two);
-	ASSERT_EQ(container->size(), 1); 
+	 
 	EXPECT_EQ(container->size(), 2);
 }
 
@@ -28,7 +28,7 @@ TEST(ListContainerTest, CheckSwapTest) {
 	Op* two = new Op(2);
 	container->add_element(one);
 	container->add_element(two);
-	ASSERT_EQ(container->size(), 1);
+	
 	cout << "Elements pre-swap: ";
 	container->print();
 	container->swap(0,1);
@@ -48,7 +48,7 @@ TEST(VectorSortTest, BubbleSortTest) {
     Add* TreeB = new Add(three, two);
 
     Op* ten = new Op(10);
-    Ope* six = new Op(6);
+    Op* six = new Op(6);
     Sub* TreeC = new Sub(ten, six);
 
     VectorContainer* container = new VectorContainer();
@@ -80,10 +80,10 @@ TEST(ListSortTest, BubbleSort) {
     Add* TreeB = new Add(three, two);
 
     Op* ten = new Op(10);
-    Ope* six = new Op(6);
+    Op* six = new Op(6);
     Sub* TreeC = new Sub(ten, six);
 
-    List* container = new ListContainer();
+    ListContainer* container = new ListContainer();
     container->add_element(TreeA);
     container->add_element(TreeB);
     container->add_element(TreeC);
@@ -112,10 +112,10 @@ TEST(ListContainerTest, SelectionSort) {
     Add* TreeB = new Add(three, two);
 
     Op* ten = new Op(10);
-    Ope* six = new Op(6);
+    Op* six = new Op(6);
     Sub* TreeC = new Sub(ten, six);
 
-    List* container = new ListContainer();
+    ListContainer* container = new ListContainer();
     container->add_element(TreeA);
     container->add_element(TreeB);
     container->add_element(TreeC);

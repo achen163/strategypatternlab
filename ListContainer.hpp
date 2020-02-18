@@ -45,7 +45,7 @@ class ListContainer : public Container {
 		int counter1 =0;
 		int counter2=0;
 		list<Base*>:: iterator it = container.begin();
-		for( it; it != container.end(); it ++) {
+		for( it; it != container.end(); it++, counter1++, counter2++) {
 			if (counter1 == i) {
 				firstelement = *it;
 			} 		
@@ -53,7 +53,9 @@ class ListContainer : public Container {
 				secondelement = *it;
 			}
 		}
-		for (it = container.begin(); it != container.end(); it++){
+ 		counter1 = 0;
+		counter2=0;
+		for (it = container.begin(); it != container.end(); counter1++, counter2++, it++){
 			if (counter1 == i) {
 				*it = secondelement;	
 			}
@@ -78,7 +80,7 @@ class ListContainer : public Container {
 	}	
 	
 	virtual int size() {
-		return	container.size();
+		return container.size();
 		
 	}
 

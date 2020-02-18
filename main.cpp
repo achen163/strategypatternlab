@@ -1,4 +1,5 @@
 #include "VectorContainer.hpp"
+#include "sort.hpp"
 #include "op.hpp"
 #include "mult.hpp"
 #include "pow.hpp"
@@ -6,11 +7,40 @@
 #include "sub.hpp"
 #include "rand.hpp"
 #include "SelectionSort.hpp"
-
+#include "ListContainer.hpp"
+#include "BubbleSort.hpp"
 #include <iostream>	
 using namespace std;
 
 int main() {
+	//List Container and BubbleSort
+	ListContainer* container = new ListContainer();
+	Base* one = new Op(1);
+	Base* two2 = new Op(2);
+	Base* three = new Op(3);
+	Base* add1 = new Add(one, three);
+	Base* mult1 = new Mult(two2, three);
+	container->add_element(one);
+	container->add_element(two2);
+	container->add_element(three);
+	container->add_element(add1);
+	container->add_element(mult1);
+	cout << "Container has 12346" << endl;
+	container->print();
+	cout << endl;
+	cout << "Container size is : " << container->size() << endl;
+	cout << "Perform swap" << endl;
+	container->swap(0,1);
+	container->print();
+	cout << endl;
+	cout << "Pre-sort container: " << endl;	
+	container->print();
+	cout << endl;
+	container->set_sort_function(new BubbleSort());
+	container->sort();
+	cout << "After sorting: " << endl;
+	container->print(); 
+	cout << endl;
 	//VectorContainer functionality 
 	VectorContainer* c = new VectorContainer();
 	Base* seven = new Op(7);
