@@ -18,7 +18,120 @@ TEST(ListContainterTest, SizeFunctionTest) {
 	Op* two = new Op(2); 	
 	container->add_element(one);
 	container->add_element(two);
+	ASSERT_EQ(container->size(), 1); 
 	EXPECT_EQ(container->size(), 2);
+}
+
+TEST(ListContainerTest, CheckSwapTest) {
+	ListContainer* container = new ListContainer();
+	Op* one = new Op(1);
+	Op* two = new Op(2);
+	container->add_element(one);
+	container->add_element(two);
+	ASSERT_EQ(container->size(), 1);
+	cout << "Elements pre-swap: ";
+	container->print();
+	container->swap(0,1);
+	cout << "Elements after-swap: ";
+	container->print();	
+	
+	EXPECT_EQ(container->at(0)->evaluate(), 2); 
+}
+
+TEST(VectorSortTest, BubbleSortTest) {
+    Op* seven = new Op(7);
+    Op* four = new Op(4);
+    Mult* TreeA = new Mult(seven, four);
+
+    Op* three = new Op(3);
+    Op* two = new Op(2);
+    Add* TreeB = new Add(three, two);
+
+    Op* ten = new Op(10);
+    Ope* six = new Op(6);
+    Sub* TreeC = new Sub(ten, six);
+
+    VectorContainer* container = new VectorContainer();
+    container->add_element(TreeA);
+    container->add_element(TreeB);
+    container->add_element(TreeC);
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 28);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 4);
+
+    container->set_sort_function(new BubbleSort());
+    container->sort();
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 4);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 28);
+}
+
+TEST(ListSortTest, BubbleSort) {
+    Op* seven = new Op(7);
+    Op* four = new Op(4);
+    Mult* TreeA = new Mult(seven, four);
+
+    Op* three = new Op(3);
+    Op* two = new Op(2);
+    Add* TreeB = new Add(three, two);
+
+    Op* ten = new Op(10);
+    Ope* six = new Op(6);
+    Sub* TreeC = new Sub(ten, six);
+
+    List* container = new ListContainer();
+    container->add_element(TreeA);
+    container->add_element(TreeB);
+    container->add_element(TreeC);
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 28);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 4);
+
+    container->set_sort_function(new BubbleSort());
+    container->sort();
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 4);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 28);
+}
+
+TEST(ListContainerTest, SelectionSort) {
+    Op* seven = new Op(7);
+    Op* four = new Op(4);
+    Mult* TreeA = new Mult(seven, four);
+
+    Op* three = new Op(3);
+    Op* two = new Op(2);
+    Add* TreeB = new Add(three, two);
+
+    Op* ten = new Op(10);
+    Ope* six = new Op(6);
+    Sub* TreeC = new Sub(ten, six);
+
+    List* container = new ListContainer();
+    container->add_element(TreeA);
+    container->add_element(TreeB);
+    container->add_element(TreeC);
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 28);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 4);
+
+    container->set_sort_function(new SelectionSort());
+    container->sort();
+
+    ASSERT_EQ(container->size(), 3);
+    EXPECT_EQ(container->at(0)->evaluate(), 4);
+    EXPECT_EQ(container->at(1)->evaluate(), 5);
+    EXPECT_EQ(container->at(2)->evaluate(), 28);
 }
 
 TEST(VectorContainerTestSet, AddElementSwapAtTest) {
