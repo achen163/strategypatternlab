@@ -14,6 +14,7 @@ using namespace std;
 
 int main() {
 	//List Container and BubbleSort
+	cout << "Using List Containers and Bubblesort: " << endl;
 	ListContainer* container = new ListContainer();
 	Base* one = new Op(1);
 	Base* two2 = new Op(2);
@@ -42,6 +43,35 @@ int main() {
 	container->print(); 
 	cout << endl;
 
+	//list COntainer Selection Sort
+	cout << "Using List Containers and Selection Sort: " << endl;
+	ListContainer* container2 = new ListContainer();
+        Base* uno = new Op(1);
+        Base* dos = new Op(2);
+        Base* tres = new Op(3);
+        Base* adder = new Add(uno, tres);
+        Base* multiplier = new Mult(dos, tres);
+        container2->add_element(uno);
+        container2->add_element(dos);
+        container2->add_element(tres);
+        container2->add_element(adder);
+        container2->add_element(multiplier);
+        cout << "Container has 12346" << endl;
+        container2->print();
+        cout << endl;
+        cout << "Container size is : " << container2->size() << endl;
+        cout << "Perform swap" << endl;
+        container2->swap(0,1);
+        container2->print();
+        cout << endl;
+        cout << "Pre-sort list container: " << endl;
+        container2->print();
+        cout << endl;
+        container2->set_sort_function(new BubbleSort());
+	container2->sort();
+	cout << "After sorting: " << endl;
+	container2->print();
+	cout << endl;
 	
 	//VectorContainer functionality 
 	VectorContainer* c = new VectorContainer();
